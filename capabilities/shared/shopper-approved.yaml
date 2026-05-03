@@ -1,0 +1,314 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Shopper Approved API"
+  description: >-
+    The Shopper Approved API for managing customer reviews, product reviews,
+    order submissions for review collection, site statistics, and review
+    follow-up scheduling. Authentication uses site ID in the path and token
+    as a query parameter.
+  tags:
+    - Reviews
+    - Ratings
+    - Ecommerce
+    - Customer Feedback
+    - Social Proof
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SHOPPER_APPROVED_SITE_ID: SHOPPER_APPROVED_SITE_ID
+      SHOPPER_APPROVED_TOKEN: SHOPPER_APPROVED_TOKEN
+
+capability:
+  consumes:
+    - type: http
+      namespace: shopper-approved
+      baseUri: "https://api.shopperapproved.com"
+      description: "Shopper Approved Review Management API"
+      authentication:
+        type: apikey
+        key: token
+        value: "{{env.SHOPPER_APPROVED_TOKEN}}"
+        placement: query
+      resources:
+        - name: site-stats
+          path: /aggregates/{{env.SHOPPER_APPROVED_SITE_ID}}
+          description: Site review statistics and aggregate ratings
+          operations:
+            - name: get-site-stats
+              method: GET
+              description: Retrieve aggregated review statistics for the site
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: reviews
+          path: /reviews/{{env.SHOPPER_APPROVED_SITE_ID}}
+          description: Customer site reviews
+          operations:
+            - name: list-reviews
+              method: GET
+              description: Retrieve a list of customer reviews
+              inputParameters:
+                - name: from
+                  in: query
+                  type: string
+                  required: false
+                  description: Start date for reviews (YYYY-MM-DD)
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: Maximum number of reviews to return
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page number for pagination
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: review-detail
+          path: /reviews/{{env.SHOPPER_APPROVED_SITE_ID}}/{review_id}
+          description: Specific customer review by ID
+          operations:
+            - name: get-review
+              method: GET
+              description: Retrieve a specific review by order ID
+              inputParameters:
+                - name: review_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The order ID of the review
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: review-update
+          path: /reviews/{{env.SHOPPER_APPROVED_SITE_ID}}/{review_id}/update
+          description: Update review follow-up details
+          operations:
+            - name: update-review
+              method: PUT
+              description: Update a review's follow-up date or cancellation status
+              inputParameters:
+                - name: review_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The order ID of the review to update
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  followup: "{{tools.followup}}"
+                  cancelled: "{{tools.cancelled}}"
+
+        - name: orders
+          path: /orders/{{env.SHOPPER_APPROVED_SITE_ID}}
+          description: Submit orders for review collection
+          operations:
+            - name: submit-order
+              method: POST
+              description: Submit an order to trigger a review request email
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  orderid: "{{tools.orderid}}"
+                  email: "{{tools.email}}"
+                  name: "{{tools.name}}"
+                  date: "{{tools.date}}"
+                  followup: "{{tools.followup}}"
+                  products: "{{tools.products}}"
+
+        - name: product-reviews
+          path: /products/{{env.SHOPPER_APPROVED_SITE_ID}}
+          description: Product-specific reviews
+          operations:
+            - name: list-product-reviews
+              method: GET
+              description: Retrieve product reviews for the site
+              inputParameters:
+                - name: from
+                  in: query
+                  type: string
+                  required: false
+                  description: Start date for product reviews
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: Maximum number of reviews to return
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page number
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: shopper-approved-rest-api
+      resources:
+        - path: /v1/stats
+          name: stats
+          description: Site review statistics
+          operations:
+            - method: GET
+              name: get-site-stats
+              description: Get aggregated site review statistics
+              call: "shopper-approved.get-site-stats"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/reviews
+          name: reviews
+          description: Customer reviews
+          operations:
+            - method: GET
+              name: list-reviews
+              description: List customer reviews
+              call: "shopper-approved.list-reviews"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/reviews/{id}
+          name: review-detail
+          description: Individual review
+          operations:
+            - method: GET
+              name: get-review
+              description: Get a review by order ID
+              call: "shopper-approved.get-review"
+              with:
+                review_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: PUT
+              name: update-review
+              description: Update review follow-up details
+              call: "shopper-approved.update-review"
+              with:
+                review_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/orders
+          name: orders
+          description: Order submission for review collection
+          operations:
+            - method: POST
+              name: submit-order
+              description: Submit order to trigger review request
+              call: "shopper-approved.submit-order"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/product-reviews
+          name: product-reviews
+          description: Product-specific reviews
+          operations:
+            - method: GET
+              name: list-product-reviews
+              description: List product reviews
+              call: "shopper-approved.list-product-reviews"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: shopper-approved-mcp
+      transport: http
+      tools:
+        - name: get-site-stats
+          description: Get aggregated review statistics including overall rating and count
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "shopper-approved.get-site-stats"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-reviews
+          description: List customer reviews with optional date filtering and pagination
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "shopper-approved.list-reviews"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-review
+          description: Retrieve a specific review by its order ID
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "shopper-approved.get-review"
+          with:
+            review_id: "tools.review_id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-product-reviews
+          description: List product-specific reviews with date filtering
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "shopper-approved.list-product-reviews"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: submit-order
+          description: Submit order information to trigger a customer review request email
+          hints:
+            readOnly: false
+            destructive: false
+          call: "shopper-approved.submit-order"
+          with:
+            orderid: "tools.orderid"
+            email: "tools.email"
+            name: "tools.name"
+            followup: "tools.followup"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: update-review
+          description: Update a review's follow-up date or mark it as cancelled
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "shopper-approved.update-review"
+          with:
+            review_id: "tools.review_id"
+            followup: "tools.followup"
+            cancelled: "tools.cancelled"
+          outputParameters:
+            - type: object
+              mapping: "$."

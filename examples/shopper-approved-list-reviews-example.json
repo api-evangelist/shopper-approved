@@ -1,0 +1,57 @@
+{
+  "summary": "List Reviews - Example Request/Response",
+  "description": "Example of retrieving customer reviews from the Shopper Approved API",
+  "request": {
+    "method": "GET",
+    "url": "https://api.shopperapproved.com/reviews/12345?token=your-api-token&limit=5&from=2026-04-01",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "reviews": [
+        {
+          "reviewid": "ORDER-10042",
+          "name": "Sarah M.",
+          "date": "2026-04-15",
+          "rating": 5,
+          "review": "Excellent shopping experience! Products arrived quickly and exactly as described. Will definitely shop here again.",
+          "headline": "Great experience!",
+          "verified": true,
+          "location": "Austin, TX",
+          "helpful": 3,
+          "unhelpful": 0
+        },
+        {
+          "reviewid": "ORDER-10039",
+          "name": "John D.",
+          "date": "2026-04-12",
+          "rating": 4,
+          "review": "Good selection and fast shipping. Customer service was very helpful when I had a question.",
+          "headline": "Satisfied customer",
+          "verified": true,
+          "location": "Denver, CO",
+          "helpful": 1,
+          "unhelpful": 0
+        },
+        {
+          "reviewid": "ORDER-10031",
+          "name": "Emily R.",
+          "date": "2026-04-08",
+          "rating": 5,
+          "review": "Best prices I've found online. Packaged carefully and delivered on time.",
+          "headline": "Best prices online",
+          "verified": true,
+          "location": null,
+          "helpful": 5,
+          "unhelpful": 0
+        }
+      ],
+      "total": 847,
+      "page": 1,
+      "limit": 5
+    }
+  }
+}

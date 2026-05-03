@@ -1,0 +1,110 @@
+vocabulary:
+  title: Shopper Approved Vocabulary
+  description: >-
+    Core terminology and domain vocabulary for the Shopper Approved review and
+    ratings platform API. Covers review lifecycle concepts, rating standards,
+    Google Seller Ratings integration, and e-commerce trust signals.
+  version: "1.0"
+  created: "2026-05-02"
+  modified: "2026-05-02"
+  source: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+
+terms:
+  - term: Shopper Approved
+    definition: >-
+      An e-commerce review and ratings platform that collects verified customer
+      reviews after purchase and enables them to power Google Seller Ratings in
+      Google Shopping ads and organic search results.
+    related: [Google Seller Ratings, Review, Rating]
+    tags: [Platform, Reviews]
+
+  - term: Site Review
+    definition: >-
+      A customer review of the overall shopping experience with a merchant, as
+      opposed to a review of a specific product. Site reviews contribute to the
+      merchant's overall rating and Google Seller Ratings.
+    related: [Product Review, Rating, Verified Review]
+    tags: [Reviews, Trust]
+
+  - term: Product Review
+    definition: >-
+      A customer review specific to a particular product purchased, including
+      a star rating and written feedback about the product itself.
+    related: [Site Review, Rating, Product]
+    tags: [Reviews, Products]
+
+  - term: Rating
+    definition: >-
+      A numerical score (1-5 stars) given by a customer representing their
+      satisfaction with the purchase experience or product quality.
+    related: [Review, Aggregate Rating]
+    tags: [Ratings, Trust]
+
+  - term: Google Seller Ratings
+    definition: >-
+      Stars that appear on Google Shopping ads and organic listings derived
+      from verified customer reviews collected through platforms like Shopper
+      Approved. Requires a minimum number of qualifying reviews.
+    related: [Site Review, Rating, Google Shopping]
+    tags: [Google, Advertising, Trust]
+
+  - term: Verified Review
+    definition: >-
+      A review that has been confirmed as coming from an actual customer who
+      made a purchase from the merchant. Shopper Approved only collects reviews
+      from confirmed purchasers.
+    related: [Review, Order]
+    tags: [Trust, Reviews]
+
+  - term: Review ID
+    definition: >-
+      The identifier for a review in the Shopper Approved system, which corresponds
+      to the merchant's order ID submitted during the review collection process.
+    related: [Order ID, Review]
+    tags: [Identifiers]
+
+  - term: Site ID
+    definition: >-
+      A unique identifier assigned to each merchant by Shopper Approved. Required
+      as a path parameter in all API calls to identify the merchant's account.
+    related: [API Token, Authentication]
+    tags: [Identifiers, Authentication]
+
+  - term: API Token
+    definition: >-
+      A secret authentication credential provided by Shopper Approved for API access.
+      Must be passed as the token query parameter in all API requests.
+    related: [Site ID, Authentication]
+    tags: [Security, Authentication]
+
+  - term: Follow-up Date
+    definition: >-
+      The scheduled date on which Shopper Approved will send a review request email
+      to a customer after an order is submitted via the API. Merchants can customize
+      this date to send requests at the right time.
+    related: [Order Submission, Review Collection]
+    tags: [Review Collection, Scheduling]
+
+  - term: Order Submission
+    definition: >-
+      The process of passing completed order information to the Shopper Approved API
+      to initiate the review collection process. Used when the survey script cannot
+      be added directly to the checkout page.
+    related: [Follow-up Date, Review Collection]
+    tags: [Review Collection, Integration]
+
+  - term: Aggregate Rating
+    definition: >-
+      The overall computed rating for a site including average star rating and
+      total review count, accessible via the /aggregates endpoint. Used to display
+      summary review information and populate structured data.
+    related: [Site Review, Rating]
+    tags: [Analytics, Reporting]
+
+  - term: Survey Script
+    definition: >-
+      A JavaScript snippet provided by Shopper Approved that can be added to the
+      checkout confirmation page to automatically collect order information and
+      initiate the review collection process without API calls.
+    related: [Order Submission, Review Collection]
+    tags: [Integration, Setup]

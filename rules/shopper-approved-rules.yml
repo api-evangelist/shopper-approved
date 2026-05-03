@@ -1,0 +1,64 @@
+extends: spectral:oas
+rules:
+  shopper-approved-site-id-path:
+    description: Shopper Approved API uses site_id as a path parameter in all endpoints
+    severity: warn
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "\\{site_id\\}"
+
+  shopper-approved-token-query-param:
+    description: Shopper Approved API requires token as a query parameter
+    severity: warn
+    given: "$.paths[*][get,post,put].parameters[?(@.in == 'query' && @.name == 'token')]"
+    then:
+      field: required
+      function: truthy
+
+  shopper-approved-operation-ids:
+    description: All Shopper Approved API operations must have operationIds
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: operationId
+      function: truthy
+
+  shopper-approved-tag-required:
+    description: All operations must be tagged for grouping
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: tags
+      function: truthy
+
+  shopper-approved-response-200:
+    description: GET operations must define a 200 response
+    severity: error
+    given: "$.paths[*].get"
+    then:
+      field: responses.200
+      function: truthy
+
+  shopper-approved-rating-schema:
+    description: Review rating should be constrained to 1-5 range
+    severity: warn
+    given: "$.components.schemas.Review.properties.rating"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required:
+            - minimum
+            - maximum
+
+  shopper-approved-https-server:
+    description: Shopper Approved API should use HTTPS
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"

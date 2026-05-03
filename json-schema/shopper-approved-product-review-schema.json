@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/shopper-approved/json-schema/shopper-approved-product-review-schema.json",
+  "title": "Shopper Approved Product Review",
+  "description": "Schema for a product-specific review in the Shopper Approved platform",
+  "type": "object",
+  "properties": {
+    "reviewid": {
+      "type": "string",
+      "description": "Unique review identifier"
+    },
+    "product_id": {
+      "type": "string",
+      "description": "The merchant's product identifier"
+    },
+    "product_name": {
+      "type": "string",
+      "description": "The name of the reviewed product"
+    },
+    "name": {
+      "type": "string",
+      "description": "Customer name"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the review was submitted"
+    },
+    "rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Product star rating (1-5)"
+    },
+    "review": {
+      "type": "string",
+      "description": "Product review text"
+    },
+    "headline": {
+      "type": "string",
+      "description": "Review headline"
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Verified purchase indicator"
+    }
+  },
+  "required": ["reviewid", "product_id", "rating", "date"]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/shopper-approved/json-schema/shopper-approved-review-schema.json",
+  "title": "Shopper Approved Review",
+  "description": "Schema for a customer site review in the Shopper Approved platform",
+  "type": "object",
+  "properties": {
+    "reviewid": {
+      "type": "string",
+      "description": "Unique review identifier (corresponds to the order ID)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Customer name (may be partially anonymized for privacy)"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the review was submitted (YYYY-MM-DD)"
+    },
+    "rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Star rating from 1 (lowest) to 5 (highest)"
+    },
+    "review": {
+      "type": "string",
+      "description": "The full text of the customer review"
+    },
+    "headline": {
+      "type": "string",
+      "description": "Short headline or title for the review"
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Whether this review is from a verified purchase"
+    },
+    "location": {
+      "type": ["string", "null"],
+      "description": "Reviewer geographic location (city, state)"
+    },
+    "helpful": {
+      "type": "integer",
+      "description": "Count of helpful votes from other shoppers"
+    },
+    "unhelpful": {
+      "type": "integer",
+      "description": "Count of unhelpful votes from other shoppers"
+    }
+  },
+  "required": ["reviewid", "rating", "date"]
+}

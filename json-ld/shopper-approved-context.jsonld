@@ -1,0 +1,42 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Review": "schema:Review",
+    "reviewid": "schema:identifier",
+    "name": "schema:author",
+    "date": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:date"
+    },
+    "rating": {
+      "@id": "schema:ratingValue",
+      "@type": "xsd:integer"
+    },
+    "review": "schema:reviewBody",
+    "headline": "schema:name",
+    "verified": "schema:isVerified",
+    "location": "schema:locationCreated",
+    "helpful": "schema:interactionCount",
+    "unhelpful": "schema:interactionCount",
+
+    "ProductReview": "schema:Review",
+    "product_id": "schema:identifier",
+    "product_name": "schema:name",
+
+    "SiteStats": "schema:AggregateRating",
+    "site_id": "schema:identifier",
+    "count": "schema:reviewCount",
+    "ratingValue": "schema:ratingValue",
+    "five_star": "schema:bestRating",
+    "domain": "schema:url",
+
+    "OrderSubmission": "schema:Order",
+    "orderid": "schema:orderNumber",
+    "email": "schema:email",
+    "followup": "schema:deliveryDate",
+    "products": "schema:orderedItem"
+  }
+}

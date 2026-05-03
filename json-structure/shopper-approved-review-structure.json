@@ -1,0 +1,18 @@
+{
+  "title": "Shopper Approved Review Structure",
+  "description": "Hierarchical structure of a Shopper Approved customer review",
+  "resource": "Review",
+  "endpoint": "/reviews/{site_id}",
+  "structure": {
+    "reviewid": { "type": "string", "description": "Order ID / review identifier" },
+    "name": { "type": "string", "description": "Customer name" },
+    "date": { "type": "date", "description": "Review submission date" },
+    "rating": { "type": "integer", "min": 1, "max": 5, "description": "Star rating" },
+    "review": { "type": "string", "description": "Full review text" },
+    "headline": { "type": "string", "description": "Review title" },
+    "verified": { "type": "boolean", "description": "Verified purchase status" },
+    "location": { "type": "string", "nullable": true, "description": "Reviewer location" },
+    "helpful": { "type": "integer", "description": "Helpful vote count" },
+    "unhelpful": { "type": "integer", "description": "Unhelpful vote count" }
+  }
+}

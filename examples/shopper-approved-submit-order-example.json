@@ -1,0 +1,33 @@
+{
+  "summary": "Submit Order for Review Collection - Example Request/Response",
+  "description": "Example of submitting an order to trigger a review request via the Shopper Approved API",
+  "request": {
+    "method": "POST",
+    "url": "https://api.shopperapproved.com/orders/12345?token=your-api-token",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "orderid": "ORDER-10050",
+      "email": "customer@example.com",
+      "name": "Jane Smith",
+      "date": "2026-05-02",
+      "followup": "2026-05-09",
+      "products": [
+        {
+          "id": "PROD-001",
+          "name": "Classic Cotton T-Shirt - Blue/Medium",
+          "url": "https://mystore.com/products/classic-cotton-t-shirt",
+          "image": "https://mystore.com/images/classic-cotton-t-shirt.jpg"
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "message": "Order submitted successfully. Review request scheduled for 2026-05-09."
+    }
+  }
+}
