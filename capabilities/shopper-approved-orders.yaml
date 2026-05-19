@@ -1,0 +1,96 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Shopper Approved API — Orders
+  description: 'Shopper Approved API — Orders. 1 operations. Lead operation: Submit Order. Self-contained Naftiko capability
+    covering one Shopper Approved business surface.'
+  tags:
+  - Shopper Approved
+  - Orders
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SHOPPER_APPROVED_API_KEY: SHOPPER_APPROVED_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: shopper-approved-orders
+    baseUri: https://api.shopperapproved.com
+    description: Shopper Approved API — Orders business capability. Self-contained, no shared references.
+    resources:
+    - name: orders-site_id
+      path: /orders/{site_id}
+      operations:
+      - name: submitorder
+        method: POST
+        description: Submit Order
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          description: Your Shopper Approved site ID
+          required: true
+        - name: token
+          in: query
+          type: string
+          description: Your Shopper Approved API token
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: token
+      value: '{{env.SHOPPER_APPROVED_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: shopper-approved-orders-rest
+    port: 8080
+    description: REST adapter for Shopper Approved API — Orders. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/orders/{site-id}
+      name: orders-site-id
+      description: REST surface for orders-site_id.
+      operations:
+      - method: POST
+        name: submitorder
+        description: Submit Order
+        call: shopper-approved-orders.submitorder
+        with:
+          site_id: rest.site_id
+          token: rest.token
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: shopper-approved-orders-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Shopper Approved API — Orders. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: submit-order
+      description: Submit Order
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: shopper-approved-orders.submitorder
+      with:
+        site_id: tools.site_id
+        token: tools.token
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
