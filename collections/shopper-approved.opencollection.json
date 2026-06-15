@@ -1,0 +1,256 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shopper Approved API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Site Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shopperapproved.com/aggregates/:site_id",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path",
+                "description": "Your Shopper Approved site ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Your Shopper Approved API token"
+              }
+            ]
+          },
+          "docs": "Retrieves aggregated review statistics for a site including overall rating, total review count, and distribution of ratings."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reviews",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Reviews",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shopperapproved.com/reviews/:site_id",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path",
+                "description": "Your Shopper Approved site ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Your Shopper Approved API token"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for reviews (defaults to last 30 days if not specified)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of reviews to return"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of customer reviews for the site. Supports filtering by date range and pagination via limit and page parameters."
+        },
+        {
+          "info": {
+            "name": "Get Review",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shopperapproved.com/reviews/:site_id/:review_id",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path",
+                "description": "Your Shopper Approved site ID"
+              },
+              {
+                "name": "review_id",
+                "value": "",
+                "type": "path",
+                "description": "The order ID of the review to retrieve"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Your Shopper Approved API token"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific review by review ID (order ID)."
+        },
+        {
+          "info": {
+            "name": "Update Review",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.shopperapproved.com/reviews/:site_id/:review_id/update",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path",
+                "description": "Your Shopper Approved site ID"
+              },
+              {
+                "name": "review_id",
+                "value": "",
+                "type": "path",
+                "description": "The order ID of the review to update"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Your Shopper Approved API token"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a review's follow-up date or marks a review as cancelled. Useful for adjusting when a follow-up email will be sent to the customer."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shopperapproved.com/orders/:site_id",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path",
+                "description": "Your Shopper Approved site ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Your Shopper Approved API token"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submits order information to Shopper Approved to trigger a review request to the customer at a specified follow-up date. Use this endpoint when you cannot use the survey script directly on your checkout page."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Product Reviews",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Product Reviews",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shopperapproved.com/products/:site_id",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path",
+                "description": "Your Shopper Approved site ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Your Shopper Approved API token"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for product reviews"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of product reviews to return"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of product-specific reviews for the site. Supports date filtering and pagination."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

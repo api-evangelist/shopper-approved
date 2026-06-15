@@ -1,0 +1,842 @@
+{
+  "item": [
+    {
+      "id": "4f7dd1c4-fe1c-4c1c-be6b-b16b998cae7b",
+      "name": "Statistics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "50ad3b13-22be-4c9a-9573-9b3c8e295c24",
+          "name": "Get Site Statistics",
+          "request": {
+            "name": "Get Site Statistics",
+            "description": {
+              "content": "Retrieves aggregated review statistics for a site including overall rating, total review count, and distribution of ratings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "aggregates",
+                ":site_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Your Shopper Approved API token"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) Your Shopper Approved site ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "520c95eb-01f8-4a93-88e0-a17b48faa36b",
+              "name": "Site statistics retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aggregates",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) Your Shopper Approved site ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"site_id\": \"string\",\n  \"rating\": 6741.902357218686,\n  \"count\": 1248,\n  \"five_star\": 4588,\n  \"four_star\": 9816,\n  \"three_star\": 8921,\n  \"two_star\": 5244,\n  \"one_star\": 3716,\n  \"name\": \"string\",\n  \"domain\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c07c8792-135d-46c9-a47a-7585460b3497",
+      "name": "Reviews",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83980ba6-967b-497a-a3fb-af74202358eb",
+          "name": "List Reviews",
+          "request": {
+            "name": "List Reviews",
+            "description": {
+              "content": "Retrieves a list of customer reviews for the site. Supports filtering by date range and pagination via limit and page parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reviews",
+                ":site_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Your Shopper Approved API token"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for reviews (defaults to last 30 days if not specified)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of reviews to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) Your Shopper Approved site ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72cf2208-444a-4fc3-9777-bc6a388f66b8",
+              "name": "List of reviews retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reviews",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) Your Shopper Approved site ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reviews\": [\n    {\n      \"reviewid\": \"string\",\n      \"name\": \"string\",\n      \"date\": \"1964-01-05\",\n      \"rating\": 2,\n      \"review\": \"string\",\n      \"headline\": \"string\",\n      \"verified\": true,\n      \"location\": \"string\",\n      \"helpful\": 7734,\n      \"unhelpful\": 4628\n    },\n    {\n      \"reviewid\": \"string\",\n      \"name\": \"string\",\n      \"date\": \"1988-06-21\",\n      \"rating\": 3,\n      \"review\": \"string\",\n      \"headline\": \"string\",\n      \"verified\": false,\n      \"location\": \"string\",\n      \"helpful\": 2814,\n      \"unhelpful\": 5761\n    }\n  ],\n  \"total\": 2179,\n  \"page\": 4923,\n  \"limit\": 885\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96833cb6-7e2e-4a39-b311-9be4d4bb38dc",
+          "name": "Get Review",
+          "request": {
+            "name": "Get Review",
+            "description": {
+              "content": "Retrieves a specific review by review ID (order ID).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reviews",
+                ":site_id",
+                ":review_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Your Shopper Approved API token"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) Your Shopper Approved site ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "review_id",
+                  "description": "(Required) The order ID of the review to retrieve"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88ab3d71-c6ba-446e-aa4c-e92a180e6dc5",
+              "name": "Review retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reviews",
+                    ":site_id",
+                    ":review_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) Your Shopper Approved site ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "review_id",
+                      "description": "(Required) The order ID of the review to retrieve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reviewid\": \"string\",\n  \"name\": \"string\",\n  \"date\": \"2011-07-06\",\n  \"rating\": 1,\n  \"review\": \"string\",\n  \"headline\": \"string\",\n  \"verified\": true,\n  \"location\": \"string\",\n  \"helpful\": 7961,\n  \"unhelpful\": 5199\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98582cdf-bb15-4812-b965-297fe0f91b4a",
+          "name": "Update Review",
+          "request": {
+            "name": "Update Review",
+            "description": {
+              "content": "Updates a review's follow-up date or marks a review as cancelled. Useful for adjusting when a follow-up email will be sent to the customer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reviews",
+                ":site_id",
+                ":review_id",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Your Shopper Approved API token"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) Your Shopper Approved site ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "review_id",
+                  "description": "(Required) The order ID of the review to update"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"followup\": \"<date>\",\n  \"cancelled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "558ce271-481c-42e1-b28f-442040e07a32",
+              "name": "Review updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reviews",
+                    ":site_id",
+                    ":review_id",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) Your Shopper Approved site ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "review_id",
+                      "description": "(Required) The order ID of the review to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"followup\": \"<date>\",\n  \"cancelled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7be33fe9-f5b7-4753-b7eb-3a511bcd75f6",
+      "name": "Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de057f4b-6d3d-42b7-b5b9-15c155adc03c",
+          "name": "Submit Order",
+          "request": {
+            "name": "Submit Order",
+            "description": {
+              "content": "Submits order information to Shopper Approved to trigger a review request to the customer at a specified follow-up date. Use this endpoint when you cannot use the survey script directly on your checkout page.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":site_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Your Shopper Approved API token"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) Your Shopper Approved site ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderid\": \"<string>\",\n  \"email\": \"<email>\",\n  \"name\": \"<string>\",\n  \"date\": \"<date>\",\n  \"followup\": \"<date>\",\n  \"products\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image\": \"<uri>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1dc89010-12b5-49fc-9d13-2546eaf5dc03",
+              "name": "Order submitted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) Your Shopper Approved site ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderid\": \"<string>\",\n  \"email\": \"<email>\",\n  \"name\": \"<string>\",\n  \"date\": \"<date>\",\n  \"followup\": \"<date>\",\n  \"products\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image\": \"<uri>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d9daabc3-0207-4732-be60-39fc5271e59b",
+      "name": "Product Reviews",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de528caa-1169-44b7-9586-891b68a62d65",
+          "name": "List Product Reviews",
+          "request": {
+            "name": "List Product Reviews",
+            "description": {
+              "content": "Retrieves a list of product-specific reviews for the site. Supports date filtering and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                ":site_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Your Shopper Approved API token"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for product reviews"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of product reviews to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) Your Shopper Approved site ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d254793-0d19-4d93-b6d8-cce68fae55c9",
+              "name": "List of product reviews retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) Your Shopper Approved site ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reviews\": [\n    {\n      \"reviewid\": \"string\",\n      \"product_id\": \"string\",\n      \"product_name\": \"string\",\n      \"name\": \"string\",\n      \"date\": \"1958-04-28\",\n      \"rating\": 2,\n      \"review\": \"string\",\n      \"headline\": \"string\",\n      \"verified\": false\n    },\n    {\n      \"reviewid\": \"string\",\n      \"product_id\": \"string\",\n      \"product_name\": \"string\",\n      \"name\": \"string\",\n      \"date\": \"2007-04-02\",\n      \"rating\": 4,\n      \"review\": \"string\",\n      \"headline\": \"string\",\n      \"verified\": true\n    }\n  ],\n  \"total\": 9727\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shopperapproved.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2883abde-e12b-47b2-b62d-35098d56d8e6",
+    "name": "Shopper Approved API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shopper Approved API allows merchants to programmatically access their review data, submit order information for review collection, retrieve site statistics, manage product reviews, and update review follow-up details. Authentication uses a Site ID and API token passed as query parameters. Shopper Approved is a trusted source for Google Seller Ratings and enables merchants to collect and display verified customer reviews.\n\nContact Support:\n Name: Shopper Approved Support",
+      "type": "text/plain"
+    }
+  }
+}
