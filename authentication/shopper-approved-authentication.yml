@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/shopper-approved-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: SiteIdToken
+  type: apiKey
+  in: query
+  parameter: token
+  description: Shopper Approved API token (used with site_id path parameter)
+  sources:
+  - openapi/shopper-approved-openapi.yml

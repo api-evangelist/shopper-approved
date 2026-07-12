@@ -19,6 +19,12 @@ created: '2026-05-02'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 common:
+  - type: VulnerabilityDisclosure
+    url: security/shopper-approved-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/shopper-approved-domain-security.yml
+  - type: Authentication
+    url: authentication/shopper-approved-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/shopperapproved
 apis:
