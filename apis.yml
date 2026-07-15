@@ -19,6 +19,8 @@ created: '2026-05-02'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 common:
+  - type: AgenticAccess
+    url: agentic-access/shopper-approved-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/shopper-approved-vulnerability-disclosure.yml
   - type: DomainSecurity
