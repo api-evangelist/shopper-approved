@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: Shopper Approved Orders API
+  description: The Shopper Approved API allows merchants to programmatically access their review data, submit order information for review collection, retrieve site statistics, manage product reviews, and update review follow-up details. Authentication uses a Site ID and API token passed as query parameters. Shopper Approved is a trusted source for Google Seller Ratings and enables merchants to collect and display verified customer reviews.
+  version: '1.0'
+  contact:
+    name: Shopper Approved Support
+    url: https://help.shopperapproved.com/
+  termsOfService: https://www.shopperapproved.com/terms/
+servers:
+- url: https://api.shopperapproved.com
+  description: Shopper Approved API
+security:
+- SiteIdToken: []
+tags:
+- name: Orders
+paths:
+  /orders/{site_id}:
+    post:
+      operationId: submitOrder
+      summary: Submit Order
+      description: Submits order information to Shopper Approved to trigger a review request to the customer at a specified follow-up date. Use this endpoint when you cannot use the survey script directly on your checkout page.
+      tags:
+      - Orders
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        description: Your Shopper Approved site ID
+        schema:
+          type: string
+      - name: token
+        in: query
+        required: true
+        description: Your Shopper Approved API token
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderSubmission'
+      responses:
+        '200':
+          description: Order submitted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+components:
+  schemas:
+    OrderSubmission:
+      type: object
+      description: Order information to submit for review collection
+      required:
+      - orderid
+      - email
+      - name
+      properties:
+        orderid:
+          type: string
+          description: Your unique order identifier
+        email:
+          type: string
+          format: email
+          description: Customer email address for the review request
+        name:
+          type: string
+          description: Customer name
+        date:
+          type: string
+          format: date
+          description: Order date (YYYY-MM-DD)
+        followup:
+          type: string
+          format: date
+          description: Date to send the review request email (YYYY-MM-DD)
+        products:
+          type: array
+          description: Products in the order for product reviews
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Product identifier
+              name:
+                type: string
+                description: Product name
+              url:
+                type: string
+                format: uri
+                description: Product URL
+              image:
+                type: string
+                format: uri
+                description: Product image URL
+  securitySchemes:
+    SiteIdToken:
+      type: apiKey
+      in: query
+      name: token
+      description: Shopper Approved API token (used with site_id path parameter)

@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: Shopper Approved Orders Statistics API
+  description: The Shopper Approved API allows merchants to programmatically access their review data, submit order information for review collection, retrieve site statistics, manage product reviews, and update review follow-up details. Authentication uses a Site ID and API token passed as query parameters. Shopper Approved is a trusted source for Google Seller Ratings and enables merchants to collect and display verified customer reviews.
+  version: '1.0'
+  contact:
+    name: Shopper Approved Support
+    url: https://help.shopperapproved.com/
+  termsOfService: https://www.shopperapproved.com/terms/
+servers:
+- url: https://api.shopperapproved.com
+  description: Shopper Approved API
+security:
+- SiteIdToken: []
+tags:
+- name: Statistics
+paths:
+  /aggregates/{site_id}:
+    get:
+      operationId: getSiteStats
+      summary: Get Site Statistics
+      description: Retrieves aggregated review statistics for a site including overall rating, total review count, and distribution of ratings.
+      tags:
+      - Statistics
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        description: Your Shopper Approved site ID
+        schema:
+          type: string
+      - name: token
+        in: query
+        required: true
+        description: Your Shopper Approved API token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Site statistics retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SiteStats'
+components:
+  schemas:
+    SiteStats:
+      type: object
+      description: Aggregated statistics for a Shopper Approved site
+      properties:
+        site_id:
+          type: string
+          description: The site ID
+        rating:
+          type: number
+          format: float
+          description: Overall average rating (1-5)
+        count:
+          type: integer
+          description: Total number of verified reviews
+        five_star:
+          type: integer
+          description: Number of 5-star reviews
+        four_star:
+          type: integer
+          description: Number of 4-star reviews
+        three_star:
+          type: integer
+          description: Number of 3-star reviews
+        two_star:
+          type: integer
+          description: Number of 2-star reviews
+        one_star:
+          type: integer
+          description: Number of 1-star reviews
+        name:
+          type: string
+          description: The site/merchant name
+        domain:
+          type: string
+          description: The site domain
+  securitySchemes:
+    SiteIdToken:
+      type: apiKey
+      in: query
+      name: token
+      description: Shopper Approved API token (used with site_id path parameter)

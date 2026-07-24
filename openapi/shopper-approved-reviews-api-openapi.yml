@@ -1,0 +1,211 @@
+openapi: 3.1.0
+info:
+  title: Shopper Approved Orders Reviews API
+  description: The Shopper Approved API allows merchants to programmatically access their review data, submit order information for review collection, retrieve site statistics, manage product reviews, and update review follow-up details. Authentication uses a Site ID and API token passed as query parameters. Shopper Approved is a trusted source for Google Seller Ratings and enables merchants to collect and display verified customer reviews.
+  version: '1.0'
+  contact:
+    name: Shopper Approved Support
+    url: https://help.shopperapproved.com/
+  termsOfService: https://www.shopperapproved.com/terms/
+servers:
+- url: https://api.shopperapproved.com
+  description: Shopper Approved API
+security:
+- SiteIdToken: []
+tags:
+- name: Reviews
+paths:
+  /reviews/{site_id}:
+    get:
+      operationId: listReviews
+      summary: List Reviews
+      description: Retrieves a list of customer reviews for the site. Supports filtering by date range and pagination via limit and page parameters.
+      tags:
+      - Reviews
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        description: Your Shopper Approved site ID
+        schema:
+          type: string
+      - name: token
+        in: query
+        required: true
+        description: Your Shopper Approved API token
+        schema:
+          type: string
+      - name: from
+        in: query
+        description: Start date for reviews (defaults to last 30 days if not specified)
+        schema:
+          type: string
+          format: date
+      - name: limit
+        in: query
+        description: Maximum number of reviews to return
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 25
+      - name: page
+        in: query
+        description: Page number for pagination
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+      responses:
+        '200':
+          description: List of reviews retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reviews:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Review'
+                  total:
+                    type: integer
+                    description: Total number of reviews matching the query
+                  page:
+                    type: integer
+                  limit:
+                    type: integer
+  /reviews/{site_id}/{review_id}:
+    get:
+      operationId: getReview
+      summary: Get Review
+      description: Retrieves a specific review by review ID (order ID).
+      tags:
+      - Reviews
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        description: Your Shopper Approved site ID
+        schema:
+          type: string
+      - name: review_id
+        in: path
+        required: true
+        description: The order ID of the review to retrieve
+        schema:
+          type: string
+      - name: token
+        in: query
+        required: true
+        description: Your Shopper Approved API token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Review retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+  /reviews/{site_id}/{review_id}/update:
+    put:
+      operationId: updateReview
+      summary: Update Review
+      description: Updates a review's follow-up date or marks a review as cancelled. Useful for adjusting when a follow-up email will be sent to the customer.
+      tags:
+      - Reviews
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        description: Your Shopper Approved site ID
+        schema:
+          type: string
+      - name: review_id
+        in: path
+        required: true
+        description: The order ID of the review to update
+        schema:
+          type: string
+      - name: token
+        in: query
+        required: true
+        description: Your Shopper Approved API token
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewUpdate'
+      responses:
+        '200':
+          description: Review updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+components:
+  schemas:
+    Review:
+      type: object
+      description: A customer review submitted through Shopper Approved
+      properties:
+        reviewid:
+          type: string
+          description: The review ID (order ID)
+        name:
+          type: string
+          description: Customer name (may be anonymized)
+        date:
+          type: string
+          format: date
+          description: Date the review was submitted
+        rating:
+          type: integer
+          minimum: 1
+          maximum: 5
+          description: Customer rating (1-5 stars)
+        review:
+          type: string
+          description: The customer's written review text
+        headline:
+          type: string
+          description: Review headline or title
+        verified:
+          type: boolean
+          description: Whether this is a verified purchase review
+        location:
+          type: string
+          nullable: true
+          description: Reviewer's location (city/state)
+        helpful:
+          type: integer
+          description: Number of helpful votes
+        unhelpful:
+          type: integer
+          description: Number of unhelpful votes
+    ReviewUpdate:
+      type: object
+      description: Fields to update on a review
+      properties:
+        followup:
+          type: string
+          format: date
+          description: New follow-up date for the review request (YYYY-MM-DD)
+        cancelled:
+          type: boolean
+          description: Set to true to cancel the review request
+  securitySchemes:
+    SiteIdToken:
+      type: apiKey
+      in: query
+      name: token
+      description: Shopper Approved API token (used with site_id path parameter)
