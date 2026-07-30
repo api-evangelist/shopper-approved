@@ -7,7 +7,20 @@ description: >-
   programmatic access to review data, order submission for review collection, product review management, and site
   statistics.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/shopper-approved.png
 tags:
   - Reviews
   - Ratings
@@ -30,46 +43,126 @@ common:
   - type: LinkedIn
     url: https://www.linkedin.com/company/shopperapproved
 apis:
-  - aid: shopper-approved:shopper-approved-api
-    name: Shopper Approved API
-    description: >-
-      The Shopper Approved API enables merchants to pull review data, submit orders for review collection, retrieve site
-      statistics, manage product reviews, and update review follow-up scheduling. All API requests require a Site ID
-      (included in the URL path) and an API token (passed as a query parameter), both available in the Shopper Approved
-      merchant dashboard.
-    humanURL: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
-    baseURL: https://api.shopperapproved.com
-    tags:
-      - Reviews
-      - Ratings
-      - Ecommerce
-      - Customer Feedback
-    properties:
-      - type: Documentation
-        url: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
-      - type: HelpCenter
-        url: https://help.shopperapproved.com/en/collections/10456439-api
-      - type: Authentication
-        url: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
-      - type: Website
-        url: https://www.shopperapproved.com/
-      - type: OpenAPI
-        url: openapi/shopper-approved-openapi.yml
-      - type: JSONSchema
-        url: json-schema/shopper-approved-review-schema.json
-      - type: JSONSchema
-        url: json-schema/shopper-approved-product-review-schema.json
-      - type: JSONStructure
-        url: json-structure/shopper-approved-review-structure.json
-      - type: JSONLD
-        url: json-ld/shopper-approved-context.jsonld
-      - type: SpectralRules
-        url: rules/shopper-approved-rules.yml
-      - type: Vocabulary
-        url: vocabulary/shopper-approved-vocabulary.yml
-    contact:
-      - FN: Shopper Approved Support
-        url: https://help.shopperapproved.com/
+- aid: shopper-approved:shopper-approved-orders-api
+  name: Shopper Approved Orders API
+  description: The Orders API from Shopper Approved — 1 operation(s) for orders.
+  humanURL: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  baseURL: https://api.shopperapproved.com
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/shopper-approved-orders-api-openapi.yml
+  - type: Documentation
+    url: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  - type: HelpCenter
+    url: https://help.shopperapproved.com/en/collections/10456439-api
+  - type: Authentication
+    url: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  - type: Website
+    url: https://www.shopperapproved.com/
+  - type: JSONSchema
+    url: json-schema/shopper-approved-review-schema.json
+  - type: JSONSchema
+    url: json-schema/shopper-approved-product-review-schema.json
+  - type: JSONStructure
+    url: json-structure/shopper-approved-review-structure.json
+  - type: JSONLD
+    url: json-ld/shopper-approved-context.jsonld
+  - type: SpectralRules
+    url: rules/shopper-approved-rules.yml
+  - type: Vocabulary
+    url: vocabulary/shopper-approved-vocabulary.yml
+- aid: shopper-approved:shopper-approved-product-reviews-api
+  name: Shopper Approved Product Reviews API
+  description: The Product Reviews API from Shopper Approved — 1 operation(s) for product reviews.
+  humanURL: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  baseURL: https://api.shopperapproved.com
+  tags:
+  - Product Reviews
+  properties:
+  - type: OpenAPI
+    url: openapi/shopper-approved-product-reviews-api-openapi.yml
+  - type: Documentation
+    url: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  - type: HelpCenter
+    url: https://help.shopperapproved.com/en/collections/10456439-api
+  - type: Authentication
+    url: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  - type: Website
+    url: https://www.shopperapproved.com/
+  - type: JSONSchema
+    url: json-schema/shopper-approved-review-schema.json
+  - type: JSONSchema
+    url: json-schema/shopper-approved-product-review-schema.json
+  - type: JSONStructure
+    url: json-structure/shopper-approved-review-structure.json
+  - type: JSONLD
+    url: json-ld/shopper-approved-context.jsonld
+  - type: SpectralRules
+    url: rules/shopper-approved-rules.yml
+  - type: Vocabulary
+    url: vocabulary/shopper-approved-vocabulary.yml
+- aid: shopper-approved:shopper-approved-reviews-api
+  name: Shopper Approved Reviews API
+  description: The Reviews API from Shopper Approved — 3 operation(s) for reviews.
+  humanURL: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  baseURL: https://api.shopperapproved.com
+  tags:
+  - Reviews
+  properties:
+  - type: OpenAPI
+    url: openapi/shopper-approved-reviews-api-openapi.yml
+  - type: Documentation
+    url: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  - type: HelpCenter
+    url: https://help.shopperapproved.com/en/collections/10456439-api
+  - type: Authentication
+    url: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  - type: Website
+    url: https://www.shopperapproved.com/
+  - type: JSONSchema
+    url: json-schema/shopper-approved-review-schema.json
+  - type: JSONSchema
+    url: json-schema/shopper-approved-product-review-schema.json
+  - type: JSONStructure
+    url: json-structure/shopper-approved-review-structure.json
+  - type: JSONLD
+    url: json-ld/shopper-approved-context.jsonld
+  - type: SpectralRules
+    url: rules/shopper-approved-rules.yml
+  - type: Vocabulary
+    url: vocabulary/shopper-approved-vocabulary.yml
+- aid: shopper-approved:shopper-approved-statistics-api
+  name: Shopper Approved Statistics API
+  description: The Statistics API from Shopper Approved — 1 operation(s) for statistics.
+  humanURL: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  baseURL: https://api.shopperapproved.com
+  tags:
+  - Statistics
+  properties:
+  - type: OpenAPI
+    url: openapi/shopper-approved-statistics-api-openapi.yml
+  - type: Documentation
+    url: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  - type: HelpCenter
+    url: https://help.shopperapproved.com/en/collections/10456439-api
+  - type: Authentication
+    url: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
+  - type: Website
+    url: https://www.shopperapproved.com/
+  - type: JSONSchema
+    url: json-schema/shopper-approved-review-schema.json
+  - type: JSONSchema
+    url: json-schema/shopper-approved-product-review-schema.json
+  - type: JSONStructure
+    url: json-structure/shopper-approved-review-structure.json
+  - type: JSONLD
+    url: json-ld/shopper-approved-context.jsonld
+  - type: SpectralRules
+    url: rules/shopper-approved-rules.yml
+  - type: Vocabulary
+    url: vocabulary/shopper-approved-vocabulary.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
