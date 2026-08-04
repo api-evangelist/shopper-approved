@@ -1,0 +1,20 @@
+{
+  "provider": "shopper-approved",
+  "sources": [
+    "shopper-approved-orders-api-openapi.yml",
+    "shopper-approved-product-reviews-api-openapi.yml",
+    "shopper-approved-reviews-api-openapi.yml",
+    "shopper-approved-statistics-api-openapi.yml"
+  ],
+  "outputs": [
+    "shopper-approved-orders-api-openapi.yml",
+    "shopper-approved-product-reviews-api-openapi.yml",
+    "shopper-approved-reviews-api-openapi.yml",
+    "shopper-approved-statistics-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
