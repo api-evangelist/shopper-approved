@@ -1,0 +1,174 @@
+{
+  "item": [
+    {
+      "id": "b88b0c76-9e48-4538-a609-08f5b8728b5c",
+      "name": "Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8ce283fa-2c60-4675-a535-1c99dfa7ac82",
+          "name": "Submit Order",
+          "request": {
+            "name": "Submit Order",
+            "description": {
+              "content": "Submits order information to Shopper Approved to trigger a review request to the customer at a specified follow-up date. Use this endpoint when you cannot use the survey script directly on your checkout page.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":site_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Your Shopper Approved API token"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) Your Shopper Approved site ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderid\": \"<string>\",\n  \"email\": \"<email>\",\n  \"name\": \"<string>\",\n  \"date\": \"<date>\",\n  \"followup\": \"<date>\",\n  \"products\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image\": \"<uri>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e007634b-175f-4d77-97bf-58476daa87e1",
+              "name": "Order submitted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) Your Shopper Approved site ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderid\": \"<string>\",\n  \"email\": \"<email>\",\n  \"name\": \"<string>\",\n  \"date\": \"<date>\",\n  \"followup\": \"<date>\",\n  \"products\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image\": \"<uri>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shopperapproved.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "56c05856-3ba7-46ce-a127-023119e2d317",
+    "name": "Shopper Approved Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shopper Approved API allows merchants to programmatically access their review data, submit order information for review collection, retrieve site statistics, manage product reviews, and update review follow-up details. Authentication uses a Site ID and API token passed as query parameters. Shopper Approved is a trusted source for Google Seller Ratings and enables merchants to collect and display verified customer reviews.\n\nContact Support:\n Name: Shopper Approved Support",
+      "type": "text/plain"
+    }
+  }
+}

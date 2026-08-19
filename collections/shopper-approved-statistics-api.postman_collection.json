@@ -1,0 +1,153 @@
+{
+  "item": [
+    {
+      "id": "e3178b85-2794-4674-a14e-5a17b1d7faa8",
+      "name": "Statistics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c8da8b8-c407-49b9-bd38-d04b3ce179a8",
+          "name": "Get Site Statistics",
+          "request": {
+            "name": "Get Site Statistics",
+            "description": {
+              "content": "Retrieves aggregated review statistics for a site including overall rating, total review count, and distribution of ratings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "aggregates",
+                ":site_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Your Shopper Approved API token"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) Your Shopper Approved site ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "161656a9-ea7e-4ad9-9048-34c7dc04b84c",
+              "name": "Site statistics retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aggregates",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) Your Shopper Approved site ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"site_id\": \"string\",\n  \"rating\": 6460.733024091971,\n  \"count\": 7474,\n  \"five_star\": 7181,\n  \"four_star\": 845,\n  \"three_star\": 967,\n  \"two_star\": 597,\n  \"one_star\": 134,\n  \"name\": \"string\",\n  \"domain\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shopperapproved.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2d694725-2ae6-4e17-8655-0d4f5496078d",
+    "name": "Shopper Approved Orders Statistics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shopper Approved API allows merchants to programmatically access their review data, submit order information for review collection, retrieve site statistics, manage product reviews, and update review follow-up details. Authentication uses a Site ID and API token passed as query parameters. Shopper Approved is a trusted source for Google Seller Ratings and enables merchants to collect and display verified customer reviews.\n\nContact Support:\n Name: Shopper Approved Support",
+      "type": "text/plain"
+    }
+  }
+}

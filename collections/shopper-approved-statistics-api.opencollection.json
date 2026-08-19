@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shopper Approved Orders Statistics API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Site Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shopperapproved.com/aggregates/:site_id",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path",
+                "description": "Your Shopper Approved site ID"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Your Shopper Approved API token"
+              }
+            ]
+          },
+          "docs": "Retrieves aggregated review statistics for a site including overall rating, total review count, and distribution of ratings."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
