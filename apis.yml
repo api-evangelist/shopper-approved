@@ -24,6 +24,12 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/shopper-ap
 tags:
   - Reviews
   - Ratings
+  - E-Commerce
+  - Customer Feedback
+  - Social Proof
+tags_raw:
+  - Reviews
+  - Ratings
   - Ecommerce
   - Customer Feedback
   - Social Proof
@@ -49,6 +55,8 @@ apis:
   humanURL: https://help.shopperapproved.com/en/articles/9796973-how-to-use-our-api
   baseURL: https://api.shopperapproved.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
