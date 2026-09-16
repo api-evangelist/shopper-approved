@@ -1,11 +1,10 @@
 aid: shopper-approved
 name: Shopper Approved
-description: >-
-  Shopper Approved is an e-commerce ratings and reviews platform that helps merchants collect, manage, and display
-  verified customer reviews to improve conversion rates and build trust. The platform powers Google Seller Ratings,
-  enabling reviews to appear in Google Shopping ads and organic search results. Shopper Approved offers a REST API for
-  programmatic access to review data, order submission for review collection, product review management, and site
-  statistics.
+description: Shopper Approved is an e-commerce ratings and reviews platform that helps merchants collect,
+  manage, and display verified customer reviews to improve conversion rates and build trust. The platform
+  powers Google Seller Ratings, enabling reviews to appear in Google Shopping ads and organic search results.
+  Shopper Approved offers a REST API for programmatic access to review data, order submission for review
+  collection, product review management, and site statistics.
 type: Index
 deliveryModel:
   model: unknown
@@ -34,32 +33,34 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/shopper-approved.png
 tags:
-  - Reviews
-  - Ratings
-  - E-Commerce
-  - Customer Feedback
-  - Social Proof
+- Reviews
+- Ratings
+- E-Commerce
+- Customer Feedback
+- Social Proof
 tags_raw:
-  - Reviews
-  - Ratings
-  - Ecommerce
-  - Customer Feedback
-  - Social Proof
+- Reviews
+- Ratings
+- Ecommerce
+- Customer Feedback
+- Social Proof
 url: https://raw.githubusercontent.com/api-evangelist/shopper-approved/refs/heads/main/apis.yml
 created: '2026-05-02'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 common:
-  - type: AgenticAccess
-    url: agentic-access/shopper-approved-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/shopper-approved-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/shopper-approved-domain-security.yml
-  - type: Authentication
-    url: authentication/shopper-approved-authentication.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/shopperapproved
+- type: Website
+  url: https://shopperapproved.com
+- type: AgenticAccess
+  url: agentic-access/shopper-approved-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/shopper-approved-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/shopper-approved-domain-security.yml
+- type: Authentication
+  url: authentication/shopper-approved-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/shopperapproved
 apis:
 - aid: shopper-approved:shopper-approved-orders-api
   name: Shopper Approved Orders API
@@ -184,5 +185,5 @@ apis:
   - type: Vocabulary
     url: vocabulary/shopper-approved-vocabulary.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
