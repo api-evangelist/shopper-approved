@@ -1,10 +1,7 @@
 {
   "provider": "shopper-approved",
   "sources": [
-    "shopper-approved-orders-api-openapi.yml",
-    "shopper-approved-product-reviews-api-openapi.yml",
-    "shopper-approved-reviews-api-openapi.yml",
-    "shopper-approved-statistics-api-openapi.yml"
+    "_original/shopper-approved-openapi.yml"
   ],
   "outputs": [
     "shopper-approved-orders-api-openapi.yml",
@@ -15,6 +12,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "shopper-approved-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "shopper-approved-openapi.yml: declared missing tag: Orders",
+    "shopper-approved-openapi.yml: declared missing tag: Product Reviews",
+    "shopper-approved-openapi.yml: declared missing tag: Reviews",
+    "shopper-approved-openapi.yml: declared missing tag: Statistics",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "shopper-approved-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shopper-approved-product-reviews-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shopper-approved-reviews-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shopper-approved-statistics-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
