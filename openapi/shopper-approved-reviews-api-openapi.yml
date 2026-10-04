@@ -154,6 +154,17 @@ paths:
                     type: string
 components:
   schemas:
+    ReviewUpdate:
+      type: object
+      description: Fields to update on a review
+      properties:
+        followup:
+          type: string
+          format: date
+          description: New follow-up date for the review request (YYYY-MM-DD)
+        cancelled:
+          type: boolean
+          description: Set to true to cancel the review request
     Review:
       type: object
       description: A customer review submitted through Shopper Approved
@@ -192,17 +203,6 @@ components:
         unhelpful:
           type: integer
           description: Number of unhelpful votes
-    ReviewUpdate:
-      type: object
-      description: Fields to update on a review
-      properties:
-        followup:
-          type: string
-          format: date
-          description: New follow-up date for the review request (YYYY-MM-DD)
-        cancelled:
-          type: boolean
-          description: Set to true to cancel the review request
   securitySchemes:
     SiteIdToken:
       type: apiKey
