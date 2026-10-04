@@ -1,0 +1,24 @@
+slug: shopper-approved
+provider: Shopper Approved
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Reviews
+  spec_file: shopper-approved-reviews-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.75
+  evidence: GET /reviews/{site_id}  listReviews  List Reviews; PUT /reviews/{site_id}/{review_id}/update  updateReview
+  reason: Collecting, reading and updating verified customer reviews is customer feedback management (surveys/voice-of-customer),
+    the core of this ratings-and-reviews platform.

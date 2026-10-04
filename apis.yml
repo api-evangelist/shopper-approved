@@ -49,6 +49,9 @@ created: '2026-05-02'
 modified: '2026-09-16'
 specificationVersion: '0.23'
 common:
+- type: CapabilityMap
+  url: capabilities/shopper-approved-capability-edges.yml
+  name: Shopper Approved Business Capability Map
 - type: Website
   url: https://shopperapproved.com
 - type: AgenticAccess
