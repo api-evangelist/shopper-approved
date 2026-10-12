@@ -1,0 +1,293 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/shopper-approved/integrations
+checked:
+- https://composio.dev/toolkits/shopper-approved
+- https://monid.ai/tools/shopper-approved
+- https://n8n.io/integrations/shopper-approved/
+- https://zapier.com/apps/shopper-approved/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: shopper-approved
+  url: https://zapier.com/apps/shopper-approved/integrations
+  external_url: https://www.shopperapproved.com/
+  partner_tier: BRONZE
+  triggers:
+  - key: new_media_review
+    label: Received Review With Media
+  - key: new_product_review
+    label: Received Product Review
+  - key: new_review
+    label: Received Seller Rating
+  actions: []
+  searches: []
+edges:
+- partner_name: Intercom
+  partner: intercom
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/intercom
+  direction: third-party
+  category: Customer Support
+  partner_url: https://www.intercom.com/welcome-to-intercom?utm_source=external-website&utm_medium=partner&utm_campaign=20220503_all_oc_all_global_gl_all_all_par_extmktplc&utm_term=zapier
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: Salesforce
+  partner: salesforce
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/salesforce
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://www.salesforce.com/
+- partner_name: Zendesk
+  partner: zendesk
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/zendesk
+  direction: third-party
+  category: Customer Support
+  partner_url: https://www.zendesk.com/
+- partner_name: Trello
+  partner: trello
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/trello
+  direction: third-party
+  category: Project Management
+  partner_url: https://trello.com/
+- partner_name: Trustpilot
+  partner: trustpilot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/trustpilot
+  direction: third-party
+  category: Reviews
+  partner_url: https://marketing.trustpilot.com/partner-success?utm_source=zapier&utm_medium=partner&utm_campaign=partner_partner-tracked-link_requestdemo_all_0519&partner_id=0010N0000473yhtQAA
+- partner_name: Birdeye
+  partner: birdeye
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/birdeye
+  direction: third-party
+  category: Reviews
+  partner_url: https://birdeye.com/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: Facebook Lead Ads
+  partner: facebook-lead-ads
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/facebook-lead-ads
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://www.facebook.com/business/ads/lead-ads
+- partner_name: Mailchimp
+  partner: mailchimp
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/mailchimp
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://mailchimp.com/
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: monday.com
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: Asana
+  partner: asana
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/asana
+  direction: third-party
+  category: Project Management
+  partner_url: http://asana.com/
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: ActiveCampaign
+  partner: activecampaign
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/activecampaign
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.activecampaign.com/?utm_source=unpaid_syndication_website&utm_medium=referral&utm_campaign=zapier_listing
+- partner_name: Discord
+  partner: discord
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/discord
+  direction: third-party
+  category: Team Chat
+  partner_url: https://discordapp.com/
+- partner_name: WordPress
+  partner: wordpress
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/shopper-approved/integrations/wordpress
+  direction: third-party
+  category: Website Builders
+  partner_url: https://wordpress.org/
+templates:
+- title: Send Slack channel messages for new Shopper Approved seller ratings
+  url: https://zapier.com/apps/shopper-approved/integrations/slack/1645441/send-slack-channel-messages-for-new-shopper-approved-seller-ratings
+  apps:
+  - shopper-approved
+  - slack
+- title: Send Slack channel messages for new Shopper Approved product reviews
+  url: https://zapier.com/apps/shopper-approved/integrations/slack/1645444/send-slack-channel-messages-for-new-shopper-approved-product-reviews
+  apps:
+  - shopper-approved
+  - slack
+- title: Send Slack channel messages for new Shopper Approved media reviews
+  url: https://zapier.com/apps/shopper-approved/integrations/slack/1645448/send-slack-channel-messages-for-new-shopper-approved-media-reviews
+  apps:
+  - shopper-approved
+  - slack
+- title: Send Microsoft Teams channel messages for new Shopper Approved seller ratings
+  url: https://zapier.com/apps/microsoft-teams/integrations/shopper-approved/1645450/send-microsoft-teams-channel-messages-for-new-shopper-approved-seller-ratings
+  apps:
+  - shopper-approved
+  - microsoft-teams
+- title: Send messages to Microsoft Teams channels for new Shopper Approved product reviews
+  url: https://zapier.com/apps/microsoft-teams/integrations/shopper-approved/1645452/send-messages-to-microsoft-teams-channels-for-new-shopper-approved-product-reviews
+  apps:
+  - shopper-approved
+  - microsoft-teams
+- title: Send messages to Microsoft Teams channels for new Shopper Approved media reviews
+  url: https://zapier.com/apps/microsoft-teams/integrations/shopper-approved/1645454/send-messages-to-microsoft-teams-channels-for-new-shopper-approved-media-reviews
+  apps:
+  - shopper-approved
+  - microsoft-teams
+- title: Create or update users and add notes in Intercom for new Shopper Approved seller ratings
+  url: https://zapier.com/apps/intercom/integrations/shopper-approved/1645455/create-or-update-users-and-add-notes-in-intercom-for-new-shopper-approved-seller-ratings
+  apps:
+  - shopper-approved
+  - intercom
+  - formatter
+- title: Add notes to Intercom users for new Shopper Approved product reviews
+  url: https://zapier.com/apps/intercom/integrations/shopper-approved/1645459/add-notes-to-intercom-users-for-new-shopper-approved-product-reviews
+  apps:
+  - shopper-approved
+  - intercom
+  - formatter
+- title: Create/update users and add notes in Intercom for new Shopper Approved media reviews
+  url: https://zapier.com/apps/intercom/integrations/shopper-approved/1645461/createupdate-users-and-add-notes-in-intercom-for-new-shopper-approved-media-reviews
+  apps:
+  - shopper-approved
+  - intercom
+  - formatter
+- title: Create or update HubSpot contacts and create HubSpot engagements for new Shopper Approved seller ratings
+  url: https://zapier.com/apps/hubspot/integrations/shopper-approved/1645463/create-or-update-hubspot-contacts-and-create-hubspot-engagements-for-new-shopper-approved-seller-ratings
+  apps:
+  - shopper-approved
+  - hubspot
+  - formatter
+- title: Create or update contacts and create note engagements in HubSpot for new Shopper Approved product reviews
+  url: https://zapier.com/apps/hubspot/integrations/shopper-approved/1645467/create-or-update-contacts-and-create-note-engagements-in-hubspot-for-new-shopper-approved-product-reviews
+  apps:
+  - shopper-approved
+  - hubspot
+  - formatter
+- title: Create or update contacts and add notes in HubSpot for new Shopper Approved media reviews
+  url: https://zapier.com/apps/hubspot/integrations/shopper-approved/1645472/create-or-update-contacts-and-add-notes-in-hubspot-for-new-shopper-approved-media-reviews
+  apps:
+  - shopper-approved
+  - hubspot
+  - formatter
+template_total: 22
