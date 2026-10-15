@@ -239,7 +239,6 @@
   arazzo: null
 - slug: shopper-approved-monday-com
   label: monday.com
-  partner: monday-com
   partner_name: monday.com
   category: Project Management
   type: marketplace
@@ -247,7 +246,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/shopper-approved/integrations/monday
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: shopper-approved-asana
   label: Asana
@@ -308,4 +307,42 @@
   evidence: https://zapier.com/apps/shopper-approved/integrations/wordpress
   source: edge
   status: pending-generation
+  arazzo: null
+- slug: shopper-approved-zapier
+  label: Zapier
+  partner: zapier
+  partner_name: Zapier
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  evidence: https://zapier.com/apps/shopper-approved/integrations
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: Shopper Approved
+    matched_domain: shopperapproved.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: shopper-approved
+    beta: false
+    builder: unknown (not in the directory record)
+  status: pending-generation
+  arazzo: null
+- slug: shopper-approved-wordpress-own
+  label: WordPress (own)
+  partner: wordpress
+  partner_name: WordPress (own)
+  category: WordPress plugin
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://wordpress.org/plugins/shopperapproved-reviews/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
   arazzo: null
