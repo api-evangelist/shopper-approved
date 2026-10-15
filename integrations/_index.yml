@@ -331,7 +331,7 @@
     app_slug: shopper-approved
     beta: false
     builder: unknown (not in the directory record)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: shopper-approved-wordpress-own
   label: WordPress (own)
