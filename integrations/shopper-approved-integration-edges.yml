@@ -3,6 +3,7 @@ method: searched
 source:
 - https://zapier.com/apps/shopper-approved/integrations
 checked:
+- gorgias/integrations/gorgias-integration-edges.yml
 - https://composio.dev/toolkits/shopper-approved
 - https://monid.ai/tools/shopper-approved
 - https://n8n.io/integrations/shopper-approved/
@@ -250,6 +251,22 @@ edges:
     builder: unknown (not in the directory record)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Gorgias (own)
+  partner: gorgias
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.gorgias.com/apps/shopper-approved-reviews
+  mirror_of: gorgias/integrations/gorgias-integration-edges.yml
+  apps:
+  - Shopper Approved Reviews
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
 - partner_name: WordPress (own)
   partner: wordpress
   partner_match: mirror

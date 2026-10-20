@@ -333,6 +333,18 @@
     builder: unknown (not in the directory record)
   status: not-a-workflow
   arazzo: null
+- slug: shopper-approved-gorgias-own
+  label: Gorgias (own)
+  partner: gorgias
+  partner_name: Gorgias (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.gorgias.com/apps/shopper-approved-reviews
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
 - slug: shopper-approved-wordpress-own
   label: WordPress (own)
   partner: wordpress
